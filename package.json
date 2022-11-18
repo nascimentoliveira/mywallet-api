@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/nascimentoliveira/projeto14-mywallet-back/issues"
   },
-  "homepage": "https://github.com/nascimentoliveira/projeto14-mywallet-back#readme"
+  "homepage": "https://github.com/nascimentoliveira/projeto14-mywallet-back#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0"
+  }
 }

@@ -5,7 +5,7 @@ import { entrySchemaValidationMiddleware } from '../middlewares/entrySchemaValid
 const entryRouter = Router();
 
 entryRouter.post('/entry', entrySchemaValidationMiddleware, newEntry);
-entryRouter.put('/entry/:id', editEntry);
+entryRouter.put('/entry/:id', entrySchemaValidationMiddleware, editEntry);
 entryRouter.delete('/entry/:id', deleteEntry);
 
 export default entryRouter;

@@ -18,7 +18,7 @@ export async function wallet(req, res) {
       _id: session.userId
     })
 
-    const entries = await db.collection('wallet').find({ 
+    const entries = await db.collection('entries').find({ 
       userId: user._id }).toArray();
     res.status(200).send(entries);
 
