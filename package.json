@@ -1,0 +1,26 @@
+{
+  "name": "projeto14-mywallet-back",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Back-end API for MYWALLET APP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nascimentoliveira/projeto14-mywallet-back.git"
+  },
+  "keywords": [
+    "API",
+    "back-end",
+    "wallet",
+    "node"
+  ],
+  "author": "Thiago Nascimento",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/nascimentoliveira/projeto14-mywallet-back/issues"
+  },
+  "homepage": "https://github.com/nascimentoliveira/projeto14-mywallet-back#readme"
+}
