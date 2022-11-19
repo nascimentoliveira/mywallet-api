@@ -13,7 +13,6 @@ export async function newEntry(req, res) {
       value: entry.value,
       type: entry.type,
     });
-
     res.status(201).send({ message: 'Entry created successfully!' });
 
   } catch (err) {
@@ -37,7 +36,6 @@ export async function editEntry(req, res) {
         description: newEntry.description
       }
     });
-
     res.status(200).send({ message: 'Entry updated successfully!' });
 
   } catch (err) {
@@ -53,7 +51,7 @@ export async function deleteEntry(req, res) {
 
   try {
     await entriesCollection.deleteOne({ _id: entryId });
-    res.status(200).send({ message: 'Entry deleted successfully!' })
+    res.status(200).send({ message: 'Entry deleted successfully!' });
 
   } catch (err) {
     console.error('An error has occurred: ', err);

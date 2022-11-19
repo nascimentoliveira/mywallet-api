@@ -23,7 +23,11 @@ export async function signIn(req, res) {
   const token = uuid();
 
   try {
-    await sessionsCollection.insertOne({ token, userId: user._id });
+    await sessionsCollection.insertOne({
+      token, 
+      userId: user._id ,
+      time: Date.now()
+    });
     res.status(200).send({ name: user.name, token: token });
 
   } catch (err) {

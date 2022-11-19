@@ -5,7 +5,6 @@ import { entrySchemaValidation } from '../middlewares/entrySchemaValidation.midd
 import { entryValidation } from '../middlewares/entryValidation.middleware.js';
 
 export const entryRouter = Router();
-
 entryRouter.use(authValidation);
 entryRouter.post('/entry', entrySchemaValidation, newEntry);
 entryRouter.put('/entry/:id', entrySchemaValidation, entryValidation, editEntry);

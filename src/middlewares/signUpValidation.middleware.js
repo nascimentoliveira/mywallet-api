@@ -1,6 +1,6 @@
 import { usersCollection } from '../database/db.js';
 
-export async function signupValidation(req, res, next) {
+export async function signUpValidation(req, res, next) {
   const user = res.locals.user;
 
   try {

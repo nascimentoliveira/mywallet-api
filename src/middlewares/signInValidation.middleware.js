@@ -1,7 +1,7 @@
 import { usersCollection } from '../database/db.js';
 import bcrypt from 'bcrypt';
 
-export async function signinValidation(req, res, next) {
+export async function signInValidation(req, res, next) {
   const { email, password } = res.locals.user;
 
   try {
