@@ -13,7 +13,7 @@ try {
   await mongoClient.connect();
   console.log('Connection to data server established!');
 } catch (err) {
-  return console.log('Failed to connect to database:', err);
+  console.log('Failed to connect to database:', err);
 }
 
 const db = mongoClient.db(DATABASE_NAME);

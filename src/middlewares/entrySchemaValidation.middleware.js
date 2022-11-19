@@ -13,4 +13,6 @@ export function entrySchemaValidation(req, res, next) {
   res.locals.entry = entry;
 
   next();
+
+  return;
 }

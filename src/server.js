@@ -1,6 +1,6 @@
-import app from './app.js';
+import { app } from './app.js';
 
-const port = process.env.PORT || 9999;
+const port = 5000;//process.env.PORT || 9999;
 
 app.listen(port, function (err) {
   if (err) console.log('Failed to start the server -', err);

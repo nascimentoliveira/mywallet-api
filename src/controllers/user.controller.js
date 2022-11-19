@@ -1,4 +1,4 @@
-import { sessionsCollection, usersCollection } from '../database/db';
+import { sessionsCollection, usersCollection } from '../database/db.js';
 import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
 
@@ -12,7 +12,7 @@ export async function signUp(req, res) {
 
   } catch (err) {
     console.error('An error has occurred: ', err);
-    res.status(500).send({ message: 'An error has occurred', error: err });
+    res.status(500).send({ message: 'An error has occurred', error: `${err}` });
   }
 
   return;
@@ -28,7 +28,7 @@ export async function signIn(req, res) {
 
   } catch (err) {
     console.error('An error has occurred: ', err);
-    res.status(500).send({ message: 'An error has occurred', error: err });
+    res.status(500).send({ message: 'An error has occurred', error: `${err}` });
   }
 
   return;

@@ -1,9 +1,9 @@
-import { userSchema } from '../models/user.model.js';
+import { userSchemaSignUp, userSchemaSignIn } from '../models/user.model.js';
 
-export function userSchemaValidation(req, res, next) {
+export function userSchemaValidationSignIn(req, res, next) {
   const user = req.body;
 
-  const { error } = userSchema.validate(user, { abortEarly: false });
+  const { error } = userSchemaSignIn.validate(user, { abortEarly: false });
 
   if (error) {
     const errors = error.details.map((detail) => detail.message);
@@ -13,4 +13,21 @@ export function userSchemaValidation(req, res, next) {
   res.locals.user = user;
 
   next();
+}
+
+export function userSchemaValidationSignUp(req, res, next) {
+  const user = req.body;
+
+  const { error } = userSchemaSignUp.validate(user, { abortEarly: false });
+
+  if (error) {
+    const errors = error.details.map((detail) => detail.message);
+    return res.status(422).send({ message: 'Unexpected format!', errors: errors });
+  }
+
+  res.locals.user = user;
+
+  next();
+
+  return;
 }
