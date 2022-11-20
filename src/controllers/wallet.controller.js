@@ -15,7 +15,7 @@ export async function wallet(req, res) {
 
   } catch (err) {
     console.error('An error has occurred: ', err);
-    res.status(500).send({ message: 'An error has occurred', error: `${err}` });
+    res.status(500).send({ message: 'Ocorreu um erro!', error: `${err}` });
   }
 
   return;

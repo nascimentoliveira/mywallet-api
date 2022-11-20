@@ -6,24 +6,24 @@ export async function authValidation(req, res, next) {
   const token = authorization?.replace('Bearer ', '');
 
   if (!token)
-    return res.status(400).send({ message: 'Unexpected header format! Field "Authorization" expected.' });
+    return res.status(400).send({ message: 'Formato de cabeçalho inesperado! Campo "Authorization" não encontrado.' });
 
   try {
     const session = await sessionsCollection.findOne({ token });
 
     if (!session)
-      return res.status(401).send({ message: 'Login with your account!' });
+      return res.status(401).send({ message: 'Entre com sua conta!' });
 
     if (Date.now() - session.time > TOKEN_EXPIRATION_TIME) {
       await sessionsCollection.deleteOne({ _id: session._id });
-      return res.status(401).send({ message: 'Expired token, please login again!' });
+      return res.status(401).send({ message: 'Token expirado, faça o login novamente!' });
     }
 
     res.locals.user = session;
 
   } catch (err) {
     console.error('An error has occurred: ', err);
-    return res.status(500).send({ message: 'An error has occurred!', error: `${err}` });
+    return res.status(500).send({ message: 'Ocorreu um erro!', error: `${err}` });
   }
 
   next();

@@ -7,7 +7,7 @@ export function userSchemaValidationSignIn(req, res, next) {
 
   if (error) {
     const errors = error.details.map((detail) => detail.message);
-    return res.status(422).send({ message: 'Unexpected format!', errors: errors });
+    return res.status(422).send({ message: 'Formato inesperado!', errors: errors });
   }
 
   res.locals.user = user;
@@ -24,7 +24,7 @@ export function userSchemaValidationSignUp(req, res, next) {
 
   if (error) {
     const errors = error.details.map((detail) => detail.message);
-    return res.status(422).send({ message: 'Unexpected format!', errors: errors });
+    return res.status(422).send({ message: 'Formato inesperado!', errors: errors });
   }
 
   res.locals.user = user;

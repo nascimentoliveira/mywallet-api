@@ -9,11 +9,11 @@ export async function signUp(req, res) {
 
   try {
     await usersCollection.insertOne({ ...user, password: hashPassword });
-    res.status(201).send({ message: 'User created successfully!' });
+    res.status(201).send({ message: 'Usuário criado com sucesso!' });
 
   } catch (err) {
     console.error('An error has occurred: ', err);
-    res.status(500).send({ message: 'An error has occurred!', error: `${err}` });
+    res.status(500).send({ message: 'Ocorreu um erro!', error: `${err}` });
   }
 
   return;
@@ -25,15 +25,15 @@ export async function signIn(req, res) {
 
   try {
     await sessionsCollection.insertOne({
-      token, 
-      userId: user._id ,
+      token,
+      userId: user._id,
       time: Date.now()
     });
     res.status(200).send({ name: user.name, token: token });
 
   } catch (err) {
     console.error('An error has occurred: ', err);
-    res.status(500).send({ message: 'An error has occurred!', error: `${err}` });
+    res.status(500).send({ message: 'Ocorreu um erro!', error: `${err}` });
   }
 
   return;

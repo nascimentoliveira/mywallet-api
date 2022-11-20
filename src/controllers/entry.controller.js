@@ -13,11 +13,11 @@ export async function newEntry(req, res) {
       value: entry.value,
       type: entry.type,
     });
-    res.status(201).send({ message: 'Entry created successfully!' });
+    res.status(201).send({ message: 'Registro criado com sucesso!' });
 
   } catch (err) {
     console.error('An error has occurred: ', err);
-    res.status(500).send({ message: 'An error has occurred!', error: `${err}` });
+    res.status(500).send({ message: 'Ocorreu um erro!', error: `${err}` });
   }
 
   return;
@@ -36,11 +36,11 @@ export async function editEntry(req, res) {
         description: newEntry.description
       }
     });
-    res.status(200).send({ message: 'Entry updated successfully!' });
+    res.status(200).send({ message: 'Registro atualizado com sucesso!!' });
 
   } catch (err) {
     console.error('An error has occurred: ', err);
-    res.status(500).send({ message: 'An error has occurred!', error: `${err}` });
+    res.status(500).send({ message: 'Ocorreu um erro!', error: `${err}` });
   }
 
   return;
@@ -51,11 +51,11 @@ export async function deleteEntry(req, res) {
 
   try {
     await entriesCollection.deleteOne({ _id: entryId });
-    res.status(200).send({ message: 'Entry deleted successfully!' });
+    res.status(200).send({ message: 'Registro deletado com sucesso!' });
 
   } catch (err) {
     console.error('An error has occurred: ', err);
-    res.status(500).send({ message: 'An error has occurred!', error: `${err}` });
+    res.status(500).send({ message: 'Ocorreu um erro!', error: `${err}` });
   }
 
   return;
