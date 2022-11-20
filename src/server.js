@@ -1,6 +1,6 @@
 import { app } from './app.js';
 
-const port = 5000//process.env.PORT;
+const port = process.env.PORT;
 
 app.listen(port, function (err) {
   if (err) console.log('Failed to start the server -', err);
