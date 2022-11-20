@@ -8,7 +8,7 @@ export async function newEntry(req, res) {
   try {
     await entriesCollection.insertOne({
       userId: user.userId,
-      date: dayjs().format('DD/MM/YY'),
+      date: dayjs().format('DD/MM'),
       description: entry.description,
       value: entry.value,
       type: entry.type,
@@ -17,7 +17,7 @@ export async function newEntry(req, res) {
 
   } catch (err) {
     console.error('An error has occurred: ', err);
-    res.status(500).send({ message: 'An error has occurred', error: `${err}` });
+    res.status(500).send({ message: 'An error has occurred!', error: `${err}` });
   }
 
   return;
@@ -40,7 +40,7 @@ export async function editEntry(req, res) {
 
   } catch (err) {
     console.error('An error has occurred: ', err);
-    res.status(500).send({ message: 'An error has occurred', error: `${err}` });
+    res.status(500).send({ message: 'An error has occurred!', error: `${err}` });
   }
 
   return;
@@ -55,7 +55,7 @@ export async function deleteEntry(req, res) {
 
   } catch (err) {
     console.error('An error has occurred: ', err);
-    res.status(500).send({ message: 'An error has occurred', error: `${err}` });
+    res.status(500).send({ message: 'An error has occurred!', error: `${err}` });
   }
 
   return;

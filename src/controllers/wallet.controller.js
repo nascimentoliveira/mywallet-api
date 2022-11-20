@@ -6,7 +6,7 @@ export async function wallet(req, res) {
   try {
     const entries = await entriesCollection.find({ userId: user.userId }).toArray();
     res.status(200).send(entries.map(entry => ({
-      _id: entry._id,
+      id: entry._id,
       date: entry.date,
       description: entry.description,
       value: entry.value,

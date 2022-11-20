@@ -13,6 +13,8 @@ export function userSchemaValidationSignIn(req, res, next) {
   res.locals.user = user;
 
   next();
+
+  return;
 }
 
 export function userSchemaValidationSignUp(req, res, next) {

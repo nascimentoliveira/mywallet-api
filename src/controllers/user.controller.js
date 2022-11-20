@@ -3,8 +3,9 @@ import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
 
 export async function signUp(req, res) {
+  const ROUNDS = 12;
   const user = res.locals.user;
-  const hashPassword = bcrypt.hashSync(user.password, 12);
+  const hashPassword = bcrypt.hashSync(user.password, ROUNDS);
 
   try {
     await usersCollection.insertOne({ ...user, password: hashPassword });
@@ -12,7 +13,7 @@ export async function signUp(req, res) {
 
   } catch (err) {
     console.error('An error has occurred: ', err);
-    res.status(500).send({ message: 'An error has occurred', error: `${err}` });
+    res.status(500).send({ message: 'An error has occurred!', error: `${err}` });
   }
 
   return;
@@ -32,7 +33,7 @@ export async function signIn(req, res) {
 
   } catch (err) {
     console.error('An error has occurred: ', err);
-    res.status(500).send({ message: 'An error has occurred', error: `${err}` });
+    res.status(500).send({ message: 'An error has occurred!', error: `${err}` });
   }
 
   return;

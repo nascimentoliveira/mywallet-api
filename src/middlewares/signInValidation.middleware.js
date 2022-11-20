@@ -19,7 +19,7 @@ export async function signInValidation(req, res, next) {
 
   } catch (err) {
     console.error('An error has occurred: ', err);
-    return res.status(500).send({ message: 'An error has occurred', error: `${err}` });
+    return res.status(500).send({ message: 'An error has occurred!', error: `${err}` });
   }
 
   next();
