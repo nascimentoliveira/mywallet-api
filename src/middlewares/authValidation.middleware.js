@@ -14,8 +14,10 @@ export async function authValidation(req, res, next) {
     if (!session)
       return res.status(401).send({ message: 'Login with your account!' });
 
-    if (Date.now() - session.time > TOKEN_EXPIRATION_TIME) 
+    if (Date.now() - session.time > TOKEN_EXPIRATION_TIME) {
+      await sessionsCollection.deleteOne({ _id: session._id });
       return res.status(401).send({ message: 'Expired token, please login again!' });
+    }
 
     res.locals.user = session;
 
